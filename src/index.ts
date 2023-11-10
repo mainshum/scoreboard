@@ -1,8 +1,5 @@
-import { add, subtract } from './math';
+import { Scoreboard } from './scoreboard';
 
-export { add, subtract };
+export { Scoreboard };
 
-export default {
-  add,
-  subtract,
-};
+export default Scoreboard;

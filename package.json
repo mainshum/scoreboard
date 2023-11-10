@@ -1,22 +1,13 @@
 {
-  "name": "@akashrajpurohit/ts-npm-template",
+  "name": "scoreboard",
   "version": "0.0.0-development",
-  "description": "A project template to bootstrap NPM package with Typescript",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/AkashRajpurohit/ts-npm-template.git"
-  },
-  "homepage": "https://github.com/AkashRajpurohit/ts-npm-template",
-  "bugs": "https://github.com/AkashRajpurohit/ts-npm-template/issues",
+  "description": "Track game scores",
   "author": {
-    "name": "AkashRajpurohit",
-    "email": "me@akashrajpurohit.com",
-    "url": "https://akashrajpurohit.com"
+    "name": "Aleksander Pasato",
+    "email": "doseit@gmail.com"
   },
   "keywords": [
-    "typescript-template",
-    "npm-boilerplate",
-    "semantic-release-boilerplate"
+    "scoreboard"
   ],
   "license": "MIT",
   "main": "./dist/index.js",
