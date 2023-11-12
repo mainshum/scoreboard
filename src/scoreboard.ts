@@ -19,6 +19,18 @@ export const createNewGame = (home: Team, away: Team, scoreHome?: number, scoreA
 });
 
 type Game = ReturnType<typeof createNewGame>;
+type GameWithIndex = Game & { index: number };
+
+const sortSummary = (a: GameWithIndex, b: GameWithIndex) => {
+  const totalA = a.totalScore();
+  const totalB = b.totalScore();
+
+  if (totalA > totalB) return -1;
+  if (totalA < totalB) return 1;
+
+  // opposite order to capture recenct games first
+  return a.index < b.index ? 1 : -1;
+};
 
 export const createScoreboard = () => {
   const games: Game[] = [];
@@ -28,6 +40,7 @@ export const createScoreboard = () => {
       gameStats: { home, away },
     } = game;
 
+    // check by specific values, not by reference
     const found = games.find((g) => g.containsTeam(home.name) || g.containsTeam(away.name));
 
     if (found) throw new Error(`${found.gameStats} already started`);
@@ -46,8 +59,11 @@ export const createScoreboard = () => {
     games.splice(index, 1);
   };
 
-  const getSummary = () => {
-    return games;
+  const getSummary = (): Game[] => {
+    return games
+      .slice()
+      .map((g, ind) => ({ ...g, index: ind }))
+      .sort(sortSummary);
   };
 
   return {
