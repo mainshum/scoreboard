@@ -1,29 +1,38 @@
 type Team = string;
-type TeamScore = { name: Team; score: number };
-type Game = {
-  home: TeamScore;
-  away: TeamScore;
+type Teams = {
+  home: Team;
+  away: Team;
+};
+type Game = Teams & {
+  score: number;
 };
 
 export const Scoreboard = () => {
   const games: Game[] = [];
 
-  const startGame = (home: Team, away: Team) => {
+  const startGame = ({ home, away }: Teams) => {
+    const found = games.find((g) => g.home === home || g.away === away);
+
+    if (found) throw new Error(`${home} or ${away} already playing}`);
+
     games.push({
-      home: { name: home, score: 0 },
-      away: { name: away, score: 0 },
+      home,
+      away,
+      score: 0,
     });
   };
 
-  const updateScore = (team: Team, amount: number) => {
+  const updateScore = (updated: Game) => {
     return this;
   };
 
-  const finishGame = () => {};
+  const finishGame = (teams: Teams) => {};
 
   const getSummary = () => {
     return games;
   };
+
+  const countGames = () => games.length;
 
   return {
     startGame,
