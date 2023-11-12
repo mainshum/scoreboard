@@ -1,5 +1,3 @@
-import { createScoreboard } from './scoreboard';
+import { createScoreboard, createNewGame } from './scoreboard';
 
-export { createScoreboard as Scoreboard };
-
-export default createScoreboard;
+export { createScoreboard, createNewGame };

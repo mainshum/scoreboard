@@ -12,7 +12,7 @@ Set of utilities to track scores for a set of games ⚽️
 
 ### Game tracking
 
-1. Start by initializing a new Scoreboard using `createScoreboard` factory method, which returns a new instance of `Scoreboard` with the following methods:
+Start by initializing a new Scoreboard using `createScoreboard` factory method, which returns a new instance of `Scoreboard` with the following methods:
 
 - `startGame: (g: Game) => Game`
 
